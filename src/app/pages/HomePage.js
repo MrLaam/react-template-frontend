@@ -4,13 +4,23 @@ import { connect } from "react-redux";
 import { loadPosts } from "../actions/postsActions";
 
 let HomePage = ({ posts, onLoadPosts }) => {
-  console.log(posts);
   return (
-    <Card>
-      {/* <Card.Title>Hi</Card.Title>
-      <Card.Body>Sup</Card.Body> */}
-      <Button onClick={onLoadPosts}>Load Posts</Button>
-    </Card>
+      <div>
+        <Button onClick={onLoadPosts}>Load Posts</Button>
+        {posts.map((post, index) => (
+          <Card
+            key={index}
+            style={{
+              width: "25%",
+              margin: "16px auto",
+              padding: "32px 0 32px",
+            }}
+          >
+            <Card.Title>{post.title}</Card.Title>
+            <Card.Body>{post.description}</Card.Body>
+          </Card>
+        ))}
+      </div>
   );
 };
 

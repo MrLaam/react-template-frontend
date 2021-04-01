@@ -9,6 +9,9 @@ import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./app/sagas";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { initAuthService } from "./app/services/authService";
+
+initAuthService();
 
 const sagaMiddleware = createSagaMiddleware();
 

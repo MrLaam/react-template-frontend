@@ -1,3 +1,5 @@
+import { getJwt } from "./authService";
+
 export class Api {
   instance = null;
   config = null;
@@ -15,10 +17,17 @@ export class Api {
   }
 
   async retrievePostsRequest() {
-    const response = await fetch("https://zww6v8jxvj.execute-api.eu-west-1.amazonaws.com/dev/posts");
+    const authJwt = await getJwt();
+    console.log(authJwt);
+    const response = await fetch(process.env.REACT_APP_LAMBDA_URL + "/posts", {
+      method: "get",
+      headers: {
+        Authorization: authJwt,
+      },
+    });
     const posts = await response.json();
     return posts;
   }
 }
 
-export default Api
+export default Api;
