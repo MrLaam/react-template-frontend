@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
 const SignUpSuccessPage = () => {
@@ -12,7 +12,6 @@ const SignUpSuccessPage = () => {
   return (
     <div>
       <p>Sign up successful! Check yer email</p>
-      {/* <Form> */}
         <Button
           variant="primary"
           type="submit"
@@ -23,7 +22,6 @@ const SignUpSuccessPage = () => {
         >
           Back To Home
         </Button>
-      {/* </Form> */}
     </div>
   );
 };

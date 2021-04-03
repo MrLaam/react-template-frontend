@@ -1,4 +1,4 @@
-import { all, call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeEvery } from "redux-saga/effects";
 import { LOAD_POSTS, STORE_POSTS } from "../actions";
 import Api from "../services/api";
 
@@ -10,6 +10,5 @@ export function* fetchPosts() {
 }
 
 export default function* postsSaga() {
-  console.log("postsSaga() listened");
   yield takeEvery(LOAD_POSTS, fetchPosts);
 }

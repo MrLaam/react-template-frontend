@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { login } from "../services/authService";
 import { useHistory } from "react-router-dom";
 
-const LoginPage = () => {
+const LoginPage = ({ setIsLoggedIn }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [errorMsg, setErrorMsg] = React.useState("");
@@ -22,6 +22,7 @@ const LoginPage = () => {
       if (res.message) {
         setErrorMsg(res.message);
       } else {
+        setIsLoggedIn(true)
         history.push("/");
       }
     }

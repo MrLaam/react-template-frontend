@@ -105,3 +105,9 @@ export async function getUserId() {
   const res = await getCurrentSession();
   return res.userId;
 }
+
+export async function ionViewCanEnter(){
+  return await Auth.currentAuthenticatedUser()
+    .then(() => { return true; })
+    .catch(() => { return false; });
+}
